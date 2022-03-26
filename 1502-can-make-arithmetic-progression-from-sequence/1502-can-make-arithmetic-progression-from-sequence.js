@@ -4,18 +4,14 @@
  */
 const orderASC = (a,b) => a - b;
 
-function canMakeArithmeticProgression(arr){
-    arr = [...arr].sort(orderASC);
+function canMakeArithmeticProgression(arr) {
+  arr = [...arr].sort(orderASC);
+  if (arr.length == 2) return true;
+  var step = arr[0] - arr[1];
+  while (arr.length > 1) {
     var [a, b] = arr;
-    var step = a - b;
-    return arr.length == 2 
-      ? true
-      : ( function f(list, step){
-        var [a, b] = list;
-        return list.length < 2
-            ? true
-            : a - b == step
-            ? f(list.slice(1), step)
-            : false
-    })(arr.slice(1), step)
+    if (a - b != step) return false;
+    arr = arr.slice(1);
+  }
+  return true;
 }
