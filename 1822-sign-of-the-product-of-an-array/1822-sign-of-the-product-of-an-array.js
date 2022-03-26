@@ -20,20 +20,19 @@ const sign = cond([
   [gt(0), always(-1)],
 ]);
 
-var arraySign = compose(
-  ifElse(
-    includes(0),
-    always(0),
-    compose(
-      ifElse(isOdd, always(-1), always(1)),
-      length,
-      filter(compose(equals(-1), sign))
-    )
-  ),
-  sort(orderASC)
+var arraySign = ifElse(
+  includes(0),
+  always(0),
+  compose(
+    ifElse(isOdd, always(-1), always(1)),
+    length,
+    filter(compose(equals(-1), sign))
+  )
 );
+  
 
-console.log(arraySign([1, 5, 0, 2, -3]));
+
+
 
 //.....
 //helpers
