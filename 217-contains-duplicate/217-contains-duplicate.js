@@ -3,11 +3,5 @@
  * @return {boolean}
  */
 
-var containsDuplicate = (nums) => {
-  var numsTable = nums.reduce(
-    (map, n) => map.set(n, map.get(n) ? map.get(n) + 1 : 1),
-    new Map()
-  );
-    
-  return [...numsTable.values()].some(count => count > 1)
-};
+var containsDuplicate = (nums, map = new Map()) =>
+  nums.some((n) => (map.has(n) ? true : (map.set(n, 1), false)));
