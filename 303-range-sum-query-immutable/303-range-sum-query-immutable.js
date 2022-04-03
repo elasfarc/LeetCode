@@ -1,8 +1,14 @@
+
 /**
  * @param {number[]} nums
  */
 var NumArray = function (nums) {
-  this.dataStore = nums;
+  var sum = 0;
+  this.sumStore = [];
+  for (num of nums) {
+    sum += num;
+    this.sumStore.push(sum);
+  }
 };
 
 /**
@@ -11,7 +17,9 @@ var NumArray = function (nums) {
  * @return {number}
  */
 NumArray.prototype.sumRange = function (left, right) {
-  return this.dataStore.slice(left, right + 1).reduce((sum, n) => sum + n, 0);
+  return left == 0
+    ? this.sumStore[right]
+    : this.sumStore[right] - this.sumStore[left - 1];
 };
 
 /**
