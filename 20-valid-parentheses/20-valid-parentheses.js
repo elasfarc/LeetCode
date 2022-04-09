@@ -3,15 +3,19 @@
  * @return {boolean}
  */
 
-var parenthesesTable = {'(' : ')', '[' : ']', '{' : '}'};
-const top = stack => stack[stack.length - 1];
+function isValid(s) {
+  var parenthesesTable = { "(": ")", "[": "]", "{": "}" };
+  var stack = [];
+  stack.top = function () {
+    return this[this.length - 1];
+  };
 
-function isValid(s, stack = []) {
-  return s.length == 0
-    ? stack.length == 0
-    : parenthesesTable[s[0]]
-    ? isValid(s.slice(1), [...stack, s[0]])
-    : s[0] == parenthesesTable[top(stack)]
-    ? ( stack.pop(), isValid(s.slice(1), stack))
-    : false
+  for (let char of s) {
+    if (parenthesesTable[char]) stack.push(char);
+    else {
+      if (char != parenthesesTable[stack.top()]) return false;
+      stack.pop();
+    }
+  }
+  return stack.length == 0;
 }
