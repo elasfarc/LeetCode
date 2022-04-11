@@ -3,7 +3,7 @@
  * @return {number}
  */
 
-const lengthOfLastWord = s => {
+function lengthOfLastWord(s) {
   s = s.trimEnd();
   var lastWordLength = 0;
   
