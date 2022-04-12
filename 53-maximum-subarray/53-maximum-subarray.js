@@ -3,7 +3,7 @@
  * @return {number}
  */
 
-var maxSubArray = nums =>
+const maxSubArray = nums =>
   nums.reduce(
     ({maxSum, currSum}, n) => ({
       currSum: Math.max(currSum + n, n),
