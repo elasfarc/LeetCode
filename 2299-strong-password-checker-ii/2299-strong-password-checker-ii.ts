@@ -1,7 +1,7 @@
 type tubleToObj<T extends readonly any[]> = {
   [K in T[number]]: K;
 };
-const specialChar2 = [
+const specialChar = [
   "!",
   "@",
   "#",
@@ -16,10 +16,10 @@ const specialChar2 = [
   "+",
 ] as const;
 
-const specialCharTable: tubleToObj<typeof specialChar2> & { [k: string]: any } =
-  specialChar2.reduce(
+const specialCharTable: tubleToObj<typeof specialChar> & { [k: string]: any } =
+  specialChar.reduce(
     (acc, char) => ({ ...acc, [char]: char }),
-    {} as tubleToObj<typeof specialChar2>
+    {} as tubleToObj<typeof specialChar>
   );
 
 type Validation = {
@@ -43,8 +43,8 @@ function strongPasswordCheckerII(password: string): boolean {
       let charCode: number = password.charCodeAt(i);
       let char = password[i];
       if (
-        (i < password.length && char === password[i + 1]) ||
-        password.length < 8
+        password.length < 8 ||
+        (i < password.length && char === password[i + 1])
       )
         return false;
       if (!validation.isLowerCase && charCode >= 97 && charCode <= 122)
