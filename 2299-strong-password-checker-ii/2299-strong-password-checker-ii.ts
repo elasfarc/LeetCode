@@ -53,7 +53,9 @@ function strongPasswordCheckerII(password: string): boolean {
         validation.isUpperCase = true;
       if (!validation.isDigit && charCode >= 48 && charCode <= 57)
         validation.isDigit = true;
-      if (specialCharTable[char]) validation.isSpecialChar = true;
+      if (!validation.isSpecialChar && specialCharTable[char])
+        validation.isSpecialChar = true;
+      
       i++;
     }
     return Object.values(validation).every(Boolean);
