@@ -1,5 +1,4 @@
 function removeAnagrams(words: string[]): string[] {
-  if (words.length == 1) return words;
   const results: string[] = [];
   let lastChecked = "";
   for (let i = 0; i < words.length; i++) {
@@ -11,6 +10,9 @@ function removeAnagrams(words: string[]): string[] {
 
   return results;
 }
+
+//****
+
 function isAnagrams(w1: string): (w2: string) => boolean {
   const w1Chars = [...w1].sort();
   return (w2, w2Chars = [...w2].sort()) =>
