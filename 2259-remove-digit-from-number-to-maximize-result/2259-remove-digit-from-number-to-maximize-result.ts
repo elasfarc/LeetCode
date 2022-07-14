@@ -1,3 +1,4 @@
+
 function removeDigit(
   number: string,
   digit: string,
@@ -10,10 +11,11 @@ function removeDigit(
         number,
         digit,
         index + 1,
-        number[index] == digit &&
-          BigInt(number.slice(0, index) + number.slice(index + 1)) >
+        number[index] == digit
+          ? BigInt(number.slice(0, index) + number.slice(index + 1)) >
             BigInt(maxSub)
-          ? number.slice(0, index) + number.slice(index + 1)
+            ? number.slice(0, index) + number.slice(index + 1)
+            : maxSub
           : maxSub
       );
 }
