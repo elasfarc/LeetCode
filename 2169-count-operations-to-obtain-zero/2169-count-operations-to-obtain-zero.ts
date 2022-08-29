@@ -9,7 +9,7 @@ function countOperations(num1: number, num2: number, operations = 0): number {
 }
 
 
-//************* *************************************/
+//***************************************************/
 function eqls(y: any): (x: number) => boolean {
   return (x) => Object.is(x, y);
 }
