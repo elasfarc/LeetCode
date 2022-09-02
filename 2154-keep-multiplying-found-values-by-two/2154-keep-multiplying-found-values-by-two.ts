@@ -10,7 +10,7 @@ function findFinalValue(
     : original;
 }
 
-//*****
+//******
 function getNumsMap(nums: readonly number[]): NumsMap {
   return nums.reduce<NumsMap>(
     (map, n) => (map[n] ? map : { ...map, [n]: true }),
