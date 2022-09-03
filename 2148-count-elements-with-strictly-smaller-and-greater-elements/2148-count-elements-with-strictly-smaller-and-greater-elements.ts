@@ -39,9 +39,7 @@ function head<T>(list: readonly T[]): T | undefined {
 function last<T>(list: readonly T[]): T | undefined {
   return list[compose(dec, listLength)(list)];
 }
-function nth<T>(i: number): (list: T[]) => T | undefined {
-  return (list) => list[i];
-}
+
 function dec(value: number) {
   return value - 1;
 }
