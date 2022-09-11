@@ -70,4 +70,5 @@ function converge<V, R1, R2, Result>(
   };
 }
 
-//another approach but 'd require more steps ---- [...str].filter((c, i, str) => i != 0 || i != str.length - 1).join("")
+//another approach but 'd require more steps ----
+//[...str].filter((c, i, str) => i != 0 || i != str.length - 1).join("")
