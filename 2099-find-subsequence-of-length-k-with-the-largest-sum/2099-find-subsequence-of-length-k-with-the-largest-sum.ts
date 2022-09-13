@@ -5,7 +5,6 @@ function maxSubsequence(
   k: number,
   [min, ...rest] = [...nums].sort(ASC)
 ): number[] {
-  console.log(nums, [min, ...rest]);
   const minIndex = nums.lastIndexOf(min);
   return nums.length == k
     ? nums
