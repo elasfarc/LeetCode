@@ -1,14 +1,19 @@
 const ASC = (a: number, b: number) => a - b;
 
-function maxSubsequence(
+function maxSubsequence(nums: number[], k: number): number[] {
+  return _maxSubsequence(nums, k, [...nums].sort(ASC));
+}
+
+function _maxSubsequence(
   nums: number[],
   k: number,
-  [min, ...rest] = [...nums].sort(ASC)
+  ascSorted: number[]
 ): number[] {
+  const [min, ...rest] = ascSorted;
   const minIndex = nums.lastIndexOf(min);
   return nums.length == k
     ? nums
-    : maxSubsequence(trunc(nums, minIndex), k, rest);
+    : _maxSubsequence(trunc(nums, minIndex), k, rest);
 }
 
 function trunc<T>(toSliced: readonly T[], index: number) {
