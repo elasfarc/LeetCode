@@ -1,14 +1,10 @@
-function shuffle(nums: number[], n: number, index = 1): number[] {
-  return index >= nums.length - 2
-    ? nums
-    : shuffle(
-        [
-          ...nums.slice(0, index),
-          nums[n],
-          ...nums.slice(index, n),
-          ...nums.slice(n + 1),
-        ],
-        n + 1,
-        index + 2
-      );
+function shuffle(
+  nums: number[],
+  n: number,
+  i = 0,
+  shuffeled: number[] = []
+): number[] {
+  return i >= nums.length / 2
+    ? shuffeled
+    : shuffle(nums, n + 1, i + 1, [...shuffeled, nums[i], nums[n]]);
 }
