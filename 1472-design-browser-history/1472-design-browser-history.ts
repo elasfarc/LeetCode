@@ -20,6 +20,7 @@ class BrowserHistory {
   back(steps: number): string {
     this.current = backFromCurrent(steps, this.current);
     return this.current.val;
+    
     //** */
     function backFromCurrent(steps: number, current: HistoryNode): HistoryNode {
       return steps == 0 || current.prev == null
