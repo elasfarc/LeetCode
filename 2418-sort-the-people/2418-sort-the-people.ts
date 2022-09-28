@@ -1,9 +1,11 @@
 function sortPeople(names: string[], heights: number[]): string[] {
-  return names
-    .reduce<[string, number][]>(
-      (table, name, i) => [...table, [name, heights[i]]],
-      []
-    )
-    .sort(([n1, h1], [n2, h2]) => h2 - h1)
-    .map(([name, height]) => name);
+  const table = heights.reduce<{ [h: string]: string }>(
+    (table, height, i) => ({ ...table, [height]: names[i] }),
+    {}
+  );
+  return heights.sort(DESC).map((h) => table[h]);
+}
+
+function DESC<T>(a: T, b: T) {
+  return a > b ? -1 : 1;
 }
