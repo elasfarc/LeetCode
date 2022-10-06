@@ -1,4 +1,3 @@
-
 function timeRequiredToBuy(tickets: number[], k: number): number {
   let reqTime = 0;
 
@@ -7,6 +6,5 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
     else if(i <= k) reqTime += tickets[k] 
     else reqTime += tickets[k] - 1
   }
-
   return reqTime;
 }
