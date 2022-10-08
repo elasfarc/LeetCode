@@ -3,7 +3,7 @@ function isNotVowel(s: string) {
 }
 
 function countVowelSubstrings(word: string): number {
-  let ans = 0;
+  let subs = 0;
   for (let i = 0; i <= word.length - 5 ; i++) {
     if (isNotVowel(word[i])) continue;
     let containAllVowel = false;
@@ -14,8 +14,8 @@ function countVowelSubstrings(word: string): number {
       containAllVowel ||=
         (vowelsMap[word[j]] || (vowelsMap[word[j]] = true),
         Object.keys(vowelsMap).length == 5);
-      if (containAllVowel) ans++;
+      if (containAllVowel) subs++;
     }
   }
-  return ans;
+  return subs;
 }
