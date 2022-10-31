@@ -8,7 +8,7 @@ function minTimeToType(word: string): number {
   return minTime;
 }
 
-/*******/
+/********/
 
 function getCharCode(char: string): number {
   return char.charCodeAt(0);
