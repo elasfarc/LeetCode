@@ -5,6 +5,7 @@ function countTriples(n: number): number {
     for(let j = 1; j <= n; j++)
       for(let k = 1; k <= n; k++)
         square(i) + square(j) == square(k) ? ++tripleCounter : null
+  
   return tripleCounter
 };
 
